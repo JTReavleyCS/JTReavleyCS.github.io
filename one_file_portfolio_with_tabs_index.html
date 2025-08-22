@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>John Reavley • Portfolio</title>
+  <style>
+    :root {
+      --bg: #0b0d10;
+      --card: #12151a;
+      --text: #e9eef5;
+      --muted: #aab4c3;
+      --accent: #61dafb;
+      --accent-2: #8be9fd;
+      --ring: #2b90d9;
+    }
+    @media (prefers-color-scheme: light) {
+      :root { --bg:#f7f9fc; --card:#ffffff; --text:#0b0d10; --muted:#5b6573; --accent:#0ea5e9; --accent-2:#38bdf8; --ring:#60a5fa; }
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 80% -20%, rgba(97,218,251,.15), transparent),
+                  radial-gradient(900px 700px at -10% 120%, rgba(139,233,253,.12), transparent), var(--bg);
+      color: var(--text);
+    }
+    .container { max-width: 960px; margin: 0 auto; padding: 24px; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .title { font-size: clamp(1.25rem, 1rem + 2vw, 2rem); font-weight: 800; letter-spacing: .3px; }
+    .subtitle { color: var(--muted); font-size: .95rem; }
+    .tabbar { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+    .tabbar button {
+      appearance: none; border: 1px solid rgba(255,255,255,.08); background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(0,0,0,.04));
+      color: var(--text); padding: 10px 14px; border-radius: 12px; cursor: pointer; font-weight: 600; letter-spacing: .2px;
+    }
+    .tabbar button[aria-selected="true"] { outline: 2px solid var(--ring); outline-offset: 2px; border-color: transparent; }
+    .card { background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(0,0,0,.06)), var(--card); border: 1px solid rgba(255,255,255,.06); border-radius: 16px; padding: 20px; margin-top: 16px; box-shadow: 0 10px 30px rgba(0,0,0,.15); }
+    h2 { margin: 0 0 8px 0; font-size: 1.15rem; }
+    h3 { margin: 16px 0 8px; font-size: 1rem; }
+    ul { margin: 6px 0 0 20px; }
+    .grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    @media (min-width: 720px) { .grid { grid-template-columns: 1fr 1fr; } }
+    .muted { color: var(--muted); font-size: .9rem; }
+    .actions { display:flex; gap:10px; flex-wrap: wrap; }
+    .btn { text-decoration: none; color: var(--text); border: 1px solid rgba(255,255,255,.12); padding: 10px 14px; border-radius: 12px; font-weight: 600; }
+    .btn:hover { border-color: var(--accent); }
+    .footer { text-align:center; color: var(--muted); font-size: .85rem; margin: 28px 0 8px; }
+    a { color: var(--accent-2); }
+    .hidden { display: none; }
+    .badge { display:inline-block; border:1px solid rgba(255,255,255,.12); padding:6px 10px; border-radius:999px; font-size:.85rem; margin:4px 4px 0 0; }
+    .kicker { color: var(--muted); text-transform: uppercase; letter-spacing: .12em; font-size: .75rem; font-weight: 700; }
+    .pdf-wrap { margin:12px 0 16px; border:1px solid rgba(255,255,255,.08); border-radius:12px; overflow:hidden; background: rgba(0,0,0,.04); }
+    .pdf-frame { width:100%; height:70vh; max-height:900px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <div class="kicker">Portfolio</div>
+        <div class="title">John Reavley</div>
+        <div class="subtitle">Senior • Computer Science • Texas Christian University • Fort Worth, TX</div>
+
+      </div>
+      <div class="actions">
+        <a class="btn" href="#" onclick="window.print()">Print</a>
+        <a class="btn" href="John Reavley Resume.pdf" download>Download Résumé (PDF)</a>
+        <a class="btn" href="mailto:reaves1029@gmail.com">Contact</a>
+      </div>
+    </header>
+
+    <nav class="tabbar" role="tablist" aria-label="Sections">
+      <button role="tab" id="tab-resume" data-target="resume" aria-controls="panel-resume" aria-selected="true">Résumé</button>
+      <button role="tab" id="tab-experience" data-target="experience" aria-controls="panel-experience">Experience</button>
+      <button role="tab" id="tab-education" data-target="education" aria-controls="panel-education">Education</button>
+      <button role="tab" id="tab-certs" data-target="certs" aria-controls="panel-certs">Certifications</button>
+    </nav>
+
+    <!-- RESUME -->
+    <section id="panel-resume" role="tabpanel" aria-labelledby="tab-resume" class="card">
+      <h2>Résumé</h2>
+      <p class="muted">Embedded PDF below. If it doesn't display in your browser, use the download button above or open it in a new tab.</p>
+      <!-- Place your resume.pdf in the same folder as index.html -->
+      <div class="pdf-wrap">
+        <object data="John Reavley Resume.pdf" type="application/pdf" class="pdf-frame">
+          <p>Your browser may not support inline PDFs. <a href="John Reavley Resume.pdf" target="_blank" rel="noopener">Open the résumé</a> or use the Download button above.</p>
+        </object>
+      </div>
+
+      <div class="grid">
+        <div>
+          <h3>Summary</h3>
+          <p>I am a senior Computer Science student studying at Texas Christian University. As a proactive, hardworking individual, I am continually searching for ways to improve my skillset
+            and learn what is necessary to succeed. I also have a natural disposition toward leadership, shown in the many leadership roles I have undertaken in my high school and undergraduate years. I 
+          hope to make an impact wherever I land professionally, bringing good to the world through the skills I possess and relationships I foster. </p>
+        </div>
+        <div>
+          <img src="headshot.jpg" alt="Headshot" style="width: 100%; height: 100%; padding-left: 100px;">
+        </div>
+        <div>
+          <h3>Skills</h3>
+          <p>
+            <span class="badge">Java</span>
+            <span class="badge">Python</span>
+            <span class="badge">HTML</span>
+            <span class="badge">CSS</span>
+            <span class="badge">JavaSript</span>
+            <span class="badge">Linux</span>
+            <span class="badge">Wireshark</span>
+            <span class="badge">SQL</span>
+          </p>
+        </div>
+        <div>
+          <h3>Highlights</h3>
+          <ul>
+            <li>Built <em>FrogCrew</em> Spring Boot backend and deployed to Azure Web App.</li>
+            <li>Hands‑on with packet analysis, risk assessments, and cyber attack research.</li>
+            <li>Obtained various technical and leadership certifications.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="panel-experience" role="tabpanel" aria-labelledby="tab-experience" class="card hidden">
+      <h2>Leadership Experience</h2>
+      <article>
+        <h3>President | TCU Catholic <span class="muted">(Aug 2024 – Dec 2024)</span></h3>
+        <ul>
+          <li>Handled administrative tasks in accordance with TCU Organization
+              guidelines and Fort Worth Dioceses Guidelines.</li>
+          <li>Organized and presided over Servant Leadership Council Meetings.</li>
+          <li>Provided organization announcements and sent community emails.</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Vice President | TCU Catholic <span class="muted">(Jan 2024 – May 2024)</span></h3>
+        <ul>
+          <li>Participated in appointing committee chairmen and members.</li>
+          <li>Directly oversaw selected committees on the leadership council.</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Chairman of Student Outreach | TCU Catholic <span class="muted">(Aug 2023 – Dec 2023)</span></h3>
+        <ul>
+          <li>Coordinated community outreach events and activities.</li>
+          <li>Collaborated with other leadership committees to promote involvement.</li>
+        </ul>
+      </article>
+      <p></p>
+      <h2>Work Experience</h2>
+      <article>
+        <h3>Market Sales Associate - Target <span class="muted">(May 2022 - Present)</span></h3>
+        <ul>
+          <li>Collaborate with team members to accomplish tasks and meet daily goals.</li>
+          <li>Coordinate orders and prepare items for sale.</li>
+          <li>Welcome and engage with customers to provide proper brand representation.</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Food Runner - T.G.I. Fridays <span class="muted">(May 2021 - August 2021)</span></h3>
+        <ul>
+          <li>Handled multitude of customer and staff needs with multitasking skills.</li>
+          <li>Monitored inventory to provide customers with the widest product selection.</li>
+          <li>Prioritized customer satisfaction, quickly resolving issues and providing alternatives.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="panel-education" role="tabpanel" aria-labelledby="tab-education" class="card hidden">
+      <h2>Education</h2>
+      <article>
+        <h2>Texas Christian University (TCU) — B.S. in Computer Science</h2>
+        <p class="muted">Expected May 2026 • GPA: 3.56</p>
+        <h4>Relevant coursework</h4>
+            <li>Introduction to Cybersecurity</li>
+            <li>Introduction to Computer Networks</li>
+            <li>Unix/Linux System Administration</li>
+            <li>Web Technologies</li>
+            <li>Cloud Computing <span class="muted"> (Current)</span></li>
+            <li>Computer Organization</li>
+            <li>Computer System Fundamentals <span class="muted"> (Current)</span></li>
+            <li>Database Systems</li>
+            <li>Analysis of Algorithms</li>
+            <li>Programming Language Concepts</li>
+            <li>Data Structures</li>
+            <li>Techniques in Programming</li>
+          <p></p>
+          <h4>Clubs</h4> 
+            <li>Computer Science Society</li>
+            <li>TCU Esports</li>
+            <li>Club Baseball</li>
+          <p></p>
+          <h4>Honors</h4>
+            <li>TCU College of Science and Engineering Dean's Honor List (Fall 2022)</li>
+            <li>Obtained TCU Scholarship Upon Acceptance</li>
+
+      </article>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="panel-certs" role="tabpanel" aria-labelledby="tab-certs" class="card hidden">
+      <h2>Certifications</h2>
+      <h3>Technical</h3>
+      <ul>
+        <li>Security+ | CompTIA<span class="muted"> (Studying)</span></li>
+        <li>Network+ | CompTIA</li>
+        <li>A+ | CompTIA</li>
+        <li>ITF+ | CompTIA</li>
+      </ul>
+      <h3>Other</h3>
+      <li>Leadership | University of Illinois Urbana-Champaign</li>
+    </section>
+
+    <div class="footer"> <span id="year"></span> John Reavley • <a href="https://github.com/JTReavleyCS" rel="me">GitHub</a> • <a href="https://www.linkedin.com/in/john-reavley-bb58582a8/" rel="me">LinkedIn</a></div>
+  </div>
+
+  <script>
+    // Accessible tab controller with safe URL-hash handling
+    const buttons = document.querySelectorAll('[role="tab"]');
+    const panels = {
+      resume: document.getElementById('panel-resume'),
+      experience: document.getElementById('panel-experience'),
+      education: document.getElementById('panel-education'),
+      certs: document.getElementById('panel-certs')
+    };
+
+    function selectTab(name) {
+      if (!panels[name]) return;
+      buttons.forEach(b => b.setAttribute('aria-selected', String(b.dataset.target === name)));
+      Object.entries(panels).forEach(([key, el]) => el.classList.toggle('hidden', key !== name));
+      const id = `tab-${name}`;
+      const btn = document.getElementById(id);
+      if (btn && btn !== document.activeElement) {
+        try { btn.focus({ preventScroll: true }); } catch { /* noop */ }
+      }
+    }
+
+    function setHashSafely(target) {
+      // In some sandboxes (about:srcdoc), History.replaceState throws SecurityError.
+      // Fallback to location.hash or no-op to avoid breaking tab switching.
+      try {
+        if (location.protocol !== 'about:' && typeof history.replaceState === 'function') {
+          history.replaceState(null, '', `#${target}`);
+          return;
+        }
+      } catch {/* ignore */}
+      try { location.hash = target; } catch {/* ignore */}
+    }
+
+    // Click handling
+    buttons.forEach(b => b.addEventListener('click', () => {
+      const target = b.dataset.target;
+      setHashSafely(target);
+      selectTab(target);
+    }));
+
+    // Respond to manual hash changes / back-forward nav
+    window.addEventListener('hashchange', () => {
+      const h = location.hash.replace('#','');
+      if (panels[h]) selectTab(h);
+    });
+
+    // Initialize from hash if present
+    const initial = location.hash.replace('#','');
+    if (panels[initial]) { selectTab(initial); }
+
+    // Current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ---------------------------
+    // Tiny self-tests (run once)
+    // ---------------------------
+    (function runSelfTests(){
+      const log = (...args) => console.log('[portfolio-tests]', ...args);
+      try {
+        // Test 1: Buttons exist
+        if (buttons.length !== 4) throw new Error('Expected 4 tabs, found ' + buttons.length);
+
+        // Test 2: selectTab shows exactly one panel
+        const names = Object.keys(panels);
+        names.forEach(name => {
+          selectTab(name);
+          names.forEach(n2 => {
+            const isHidden = panels[n2].classList.contains('hidden');
+            if (n2 === name && isHidden) throw new Error(`Panel ${name} should be visible`);
+            if (n2 !== name && !isHidden) throw new Error(`Panel ${n2} should be hidden when ${name} is active`);
+          });
+        });
+
+        // Test 3: setHashSafely does not throw in sandbox
+        setHashSafely('resume');
+        log('✅ All tests passed');
+      } catch (e) {
+        console.warn('[portfolio-tests] ❌ Test failed:', e);
+      }
+    })();
+  </script>
+</body>
+</html>
